@@ -22,6 +22,20 @@ h1{font-family:'Sora';text-align:center;font-size:30px;line-height:1.08;font-wei
 .vis{display:none;background:linear-gradient(135deg,#0ea5e9,#0369a1);border-radius:22px;padding:20px;margin-bottom:18px;text-align:center;box-shadow:0 20px 42px -14px #0ea5e9aa}
 .vis h2{font-family:'Sora';font-size:19px;font-weight:800}.vis p{font-size:12.5px;color:#e9f7ff;margin:6px 0 14px;line-height:1.5;font-weight:500}
 .vis a{display:inline-block;background:#fff;color:#0369a1;font-weight:800;font-size:14.5px;padding:13px 30px;border-radius:999px;text-decoration:none;box-shadow:0 10px 22px rgba(0,0,0,.28)}
+.btn.tf{cursor:pointer}.btn.tf .ig{background:rgba(255,255,255,.16)}
+.ov{position:fixed;inset:0;z-index:50;display:none;align-items:center;justify-content:center;padding:22px;background:rgba(3,5,12,.74);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.ov.on{display:flex}
+.sheet{position:relative;width:100%;max-width:400px;background:linear-gradient(180deg,#0f1733,#0a0f24);border:1px solid rgba(255,255,255,.15);border-radius:26px;padding:26px 20px 20px;box-shadow:0 40px 90px -20px rgba(0,0,0,.8)}
+.sheet h3{font-family:'Sora';font-size:19px;font-weight:800;text-align:center;margin-bottom:4px;color:#fff}
+.ssub{text-align:center;font-size:12.5px;color:#9db4ff;margin-bottom:18px;font-weight:700}
+.step{display:flex;gap:12px;align-items:flex-start;margin-bottom:14px}
+.num{width:26px;height:26px;border-radius:50%;flex:0 0 auto;background:linear-gradient(120deg,#2f5bff,#1f3fd0);color:#fff;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px -4px #2f5bffaa}
+.stx{flex:1;min-width:0}.stt{font-size:14px;font-weight:800;color:#fff}
+.sds{font-size:11.5px;color:#9aa8cf;margin-top:2px;font-weight:500;line-height:1.45}
+.sbtn{display:inline-flex;align-items:center;gap:6px;margin-top:9px;padding:9px 16px;border-radius:12px;font-size:13px;font-weight:800;text-decoration:none}
+.sbtn.b1{background:#fff;color:#0b1220}.sbtn.b2{background:linear-gradient(120deg,#2f5bff,#1f3fd0);color:#fff}
+.tfnote{font-size:11px;color:#8593ba;text-align:center;margin-top:6px;line-height:1.5;font-weight:600}
+.xb{position:absolute;top:13px;right:13px;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.1);border:none;color:#cfdaff;font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center}
 </style></head><body><div class="wrap"><div class="card">
 <div class="vis" id="vis"><h2>👋 Welcome to Simplicity</h2><p>Check in as a Visitor — no account, no app, no install. It opens right here in your browser.</p><a id="vbtn" href="https://devmadan2004-lang.github.io/simplicity-visitor/">Check in as Visitor</a></div>
 <div class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 16.5L12 7l7 9.5" stroke="#fff" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -30,9 +44,37 @@ h1{font-family:'Sora';text-align:center;font-size:30px;line-height:1.08;font-wei
 <p class="sub">Attendance, chat, calls, sites &amp; approvals — your whole workday, in one place. Choose your device.</p>
 <a class="btn go" href="https://github.com/devmadan2004-lang/simplicity-download/releases/latest/download/simplicity.apk"><span class="ig"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.8l1.1-2a.3.3 0 1 0-.5-.3l-1.1 2a6.9 6.9 0 0 0-5.2 0l-1.1-2a.3.3 0 0 0-.5.3l1.1 2A6.3 6.3 0 0 0 7 11h10a6.3 6.3 0 0 0-3.4-5.2M9.5 9a.8.8 0 1 1 .8-.8.8.8 0 0 1-.8.8m5 0a.8.8 0 1 1 .8-.8.8.8 0 0 1-.8.8M7 12v6.5A1.5 1.5 0 0 0 8.5 20H9v2.5a1.5 1.5 0 0 0 3 0V20h1v2.5a1.5 1.5 0 0 0 3 0V20h.5a1.5 1.5 0 0 0 1.5-1.5V12H7M4.5 12A1.5 1.5 0 0 0 3 13.5v4a1.5 1.5 0 0 0 3 0v-4A1.5 1.5 0 0 0 4.5 12m15 0A1.5 1.5 0 0 0 18 13.5v4a1.5 1.5 0 0 0 3 0v-4A1.5 1.5 0 0 0 19.5 12"/></svg></span><span class="tx"><div class="t1">Android</div><div class="t2">Install the APK · one tap</div></span></a>
 <a class="btn win" href="https://github.com/devmadan2004-lang/simplicity-app/releases/latest"><span class="ig"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.7l7.4-1v7.1H3V5.7m0 12.6V12.2h7.4v7.1L3 18.3M11.3 4.5L21 3.2v8.6h-9.7V4.5m0 7.7H21v8.6l-9.7-1.3v-7.3"/></svg></span><span class="tx"><div class="t1">Windows</div><div class="t2">Desktop app for PC</div></span></a>
-<div class="btn soon"><span class="ig"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 12.7c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9s-1.8-.8-3-.8c-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7 2-1.1 2.8-2.2c.9-1.3 1.2-2.5 1.3-2.6-.1 0-2.5-1-2.5-3.8M15.3 5.8c.6-.8 1.1-1.9.9-3-1 0-2.1.7-2.8 1.4-.6.7-1.1 1.8-1 2.9 1.1.1 2.2-.6 2.9-1.3"/></svg></span><span class="tx"><div class="t1">iPhone &amp; iPad</div><div class="t2">Apple App Store</div></span><span class="pill">SOON</span></div>
-<div class="btn soon"><span class="ig"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 12.7c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9s-1.8-.8-3-.8c-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7 2-1.1 2.8-2.2c.9-1.3 1.2-2.5 1.3-2.6-.1 0-2.5-1-2.5-3.8M15.3 5.8c.6-.8 1.1-1.9.9-3-1 0-2.1.7-2.8 1.4-.6.7-1.1 1.8-1 2.9 1.1.1 2.2-.6 2.9-1.3"/></svg></span><span class="tx"><div class="t1">macOS</div><div class="t2">Mac desktop app</div></span><span class="pill">SOON</span></div>
+<div class="btn tf" onclick="openTF('ios')"><span class="ig"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 12.7c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9s-1.8-.8-3-.8c-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7 2-1.1 2.8-2.2c.9-1.3 1.2-2.5 1.3-2.6-.1 0-2.5-1-2.5-3.8M15.3 5.8c.6-.8 1.1-1.9.9-3-1 0-2.1.7-2.8 1.4-.6.7-1.1 1.8-1 2.9 1.1.1 2.2-.6 2.9-1.3"/></svg></span><span class="tx"><div class="t1">iPhone &amp; iPad</div><div class="t2">via TestFlight · tap to install</div></span><span class="pill">TESTFLIGHT</span></div>
+<div class="btn tf" onclick="openTF('mac')"><span class="ig"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 12.7c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9s-1.8-.8-3-.8c-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7 2-1.1 2.8-2.2c.9-1.3 1.2-2.5 1.3-2.6-.1 0-2.5-1-2.5-3.8M15.3 5.8c.6-.8 1.1-1.9.9-3-1 0-2.1.7-2.8 1.4-.6.7-1.1 1.8-1 2.9 1.1.1 2.2-.6 2.9-1.3"/></svg></span><span class="tx"><div class="t1">macOS</div><div class="t2">Apple Silicon · via TestFlight</div></span><span class="pill">TESTFLIGHT</span></div>
 <p class="foot">For the team at Simplicity Projects.<br>Android blocked? Allow “install unknown apps” for your browser, then tap the file.</p>
 </div></div>
-<script>if(/[?&]r=1/.test(location.search)){location.replace('https://devmadan2004-lang.github.io/simplicity-visitor/')}</script>
+<div class="ov" id="tf" onclick="if(event.target===this)closeTF()">
+  <div class="sheet">
+    <button class="xb" onclick="closeTF()" aria-label="Close">&#10005;</button>
+    <h3 id="tfTitle">Install on iPhone &amp; iPad</h3>
+    <div class="ssub">Two quick steps — via Apple TestFlight</div>
+    <div class="step">
+      <div class="num">1</div>
+      <div class="stx">
+        <div class="stt">Install TestFlight first</div>
+        <div class="sds">Apple&#39;s free installer. Tap below, get it from the App Store, then come back here.</div>
+        <a class="sbtn b1" href="https://apps.apple.com/app/testflight/id899247664" target="_blank" rel="noopener">Get TestFlight &#8599;</a>
+      </div>
+    </div>
+    <div class="step">
+      <div class="num">2</div>
+      <div class="stx">
+        <div class="stt">Then open Simplicity</div>
+        <div class="sds">Once TestFlight is installed, tap this — it opens TestFlight and installs Simplicity.</div>
+        <a class="sbtn b2" href="https://testflight.apple.com/join/XgGwYsH2" target="_blank" rel="noopener">Open Simplicity in TestFlight &#8599;</a>
+      </div>
+    </div>
+    <p class="tfnote">Do step 1 first. If you tap step 2 without TestFlight, Apple will just ask you to install it.</p>
+  </div>
+</div>
+<script>
+function openTF(p){document.getElementById('tfTitle').textContent=(p==='mac'?'Install on Mac (Apple Silicon)':'Install on iPhone & iPad');document.getElementById('tf').classList.add('on');}
+function closeTF(){document.getElementById('tf').classList.remove('on');}
+if(/[?&]r=1/.test(location.search)){location.replace('https://devmadan2004-lang.github.io/simplicity-visitor/')}
+</script>
 </body></html>
