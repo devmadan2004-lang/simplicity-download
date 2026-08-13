@@ -6,8 +6,24 @@
   window.__isAndroid=/Android/i.test(ua);
   window.__isIOS=/iPhone|iPad|iPod/i.test(ua)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
   window.__APK=APK; window.__TF=TF;
+  // Resolve the newest APK by ASKING GitHub which assets the latest release
+  // actually has (CORS-enabled API) instead of assuming its filename — a
+  // release whose asset wasn't named simplicity.apk turned the printed QR
+  // into a 404. Falls back to the stable URL if the API is slow/rate-limited.
+  window.__resolveApk=function(cb){
+    var done=false, fin=function(u){ if(!done){done=true;cb(u);} };
+    setTimeout(function(){fin(APK);},2500);
+    try{
+      fetch('https://api.github.com/repos/devmadan2004-lang/simplicity-download/releases/latest')
+        .then(function(r){return r.json();})
+        .then(function(j){
+          var a=(j&&j.assets||[]).filter(function(x){return /\.apk$/i.test(x.name||'');});
+          fin(a.length?a[0].browser_download_url:APK);
+        }).catch(function(){fin(APK);});
+    }catch(e){fin(APK);}
+  };
   if(/[?&]go=1/.test(location.search)){
-    if(window.__isAndroid){location.replace(APK);}
+    if(window.__isAndroid){window.__resolveApk(function(u){location.replace(u);});}
     else if(window.__isIOS){location.replace(TF);}
   }
 })();
@@ -152,6 +168,7 @@ h1{font-family:'Sora';text-align:center;font-size:31px;line-height:1.08;font-wei
   if(window.__isAndroid){
     h.style.display='block'; l.textContent='Other devices';
     b.href=window.__APK; t.textContent='Download for Android';
+    b.addEventListener('click',function(ev){ev.preventDefault();window.__resolveApk(function(u){location.href=u;});});
     n.innerHTML='Ek tap — file download hogi. Kholo &rarr; <b style="color:#cdd9ff">Install</b>. Pehli baar &ldquo;allow unknown apps&rdquo; aaye to <b style="color:#cdd9ff">Allow</b> kar dena.';
   } else if(window.__isIOS){
     h.style.display='block'; l.textContent='Other devices';
