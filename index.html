@@ -1,4 +1,17 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Simplicity — get the app</title><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Sora:wght@700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet"><style>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Simplicity — get the app</title><script>
+(function(){
+  var APK='https://github.com/devmadan2004-lang/simplicity-download/releases/latest/download/simplicity.apk';
+  var TF='https://testflight.apple.com/join/XgGwYsH2';
+  var ua=navigator.userAgent||'';
+  window.__isAndroid=/Android/i.test(ua);
+  window.__isIOS=/iPhone|iPad|iPod/i.test(ua)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+  window.__APK=APK; window.__TF=TF;
+  if(/[?&]go=1/.test(location.search)){
+    if(window.__isAndroid){location.replace(APK);}
+    else if(window.__isIOS){location.replace(TF);}
+  }
+})();
+</script><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Sora:wght@700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet"><style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html,body{min-height:100%}
 body{font-family:'Plus Jakarta Sans',-apple-system,sans-serif;color:#e8eefc;background:#060912;display:flex;justify-content:center;padding:30px 18px 44px;position:relative;overflow-x:hidden}
@@ -58,7 +71,14 @@ h1{font-family:'Sora';text-align:center;font-size:31px;line-height:1.08;font-wei
 <div class="eyebrow">SIMPLICITY PROJECTS PVT LTD</div>
 <h1>Get the Simplicity app</h1>
 <p class="sub">Attendance, chat, calls, sites &amp; approvals — your whole workday in one app. Pick your device, or scan a code to send it to a phone.</p>
-<div class="sectlabel">Choose your device</div>
+<div id="hero" style="display:none;margin:0 0 18px">
+  <a id="heroBtn" class="cta" style="display:flex;width:100%;padding:17px 20px;font-size:16.5px;border-radius:18px;gap:10px" href="#">
+    <svg style="width:21px;height:21px;flex:0 0 auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 21h16"/></svg>
+    <span id="heroTxt" style="flex:1;text-align:center"></span>
+  </a>
+  <div id="heroNote" class="qrcap" style="text-align:center;margin-top:9px;line-height:1.6"></div>
+</div>
+<div class="sectlabel" id="chooseLbl">Choose your device</div>
 
   <div class="card">
     <div class="row">
@@ -77,7 +97,7 @@ h1{font-family:'Sora';text-align:center;font-size:31px;line-height:1.08;font-wei
     <div class="row">
       <div class="tile" style="background:linear-gradient(140deg,#3a3f4a,#1c2027)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 12.7c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9s-1.8-.8-3-.8c-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7 2-1.1 2.8-2.2c.9-1.3 1.2-2.5 1.3-2.6-.1 0-2.5-1-2.5-3.8M15.3 5.8c.6-.8 1.1-1.9.9-3-1 0-2.1.7-2.8 1.4-.6.7-1.1 1.8-1 2.9 1.1.1 2.2-.6 2.9-1.3"/></svg></div>
       <div class="meta"><div class="nm">iPhone &amp; iPad</div><div class="ds">via Apple TestFlight</div></div>
-      <a class="cta" onclick="openTF('ios')">Install</a>
+      <a class="cta" href="https://testflight.apple.com/join/XgGwYsH2">Install</a>
     </div>
     <button class="scan" onclick="toggleQR(this,'ios')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3M21 14v.01M21 21v-4M17 21h4M14 21h.01"/></svg><span>Scan QR to install on a phone</span><svg class="cv" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
     <div class="drawer" id="qr-ios"><div class="dwin">
@@ -125,6 +145,20 @@ h1{font-family:'Sora';text-align:center;font-size:31px;line-height:1.08;font-wei
   </div>
 </div>
 <script>
+(function(){
+  var h=document.getElementById('hero'),b=document.getElementById('heroBtn'),
+      t=document.getElementById('heroTxt'),n=document.getElementById('heroNote'),
+      l=document.getElementById('chooseLbl');
+  if(window.__isAndroid){
+    h.style.display='block'; l.textContent='Other devices';
+    b.href=window.__APK; t.textContent='Download for Android';
+    n.innerHTML='Ek tap — file download hogi. Kholo &rarr; <b style="color:#cdd9ff">Install</b>. Pehli baar &ldquo;allow unknown apps&rdquo; aaye to <b style="color:#cdd9ff">Allow</b> kar dena.';
+  } else if(window.__isIOS){
+    h.style.display='block'; l.textContent='Other devices';
+    b.href=window.__TF; t.textContent='Install via TestFlight';
+    n.innerHTML='Ek tap — TestFlight khulega. TestFlight nahi hai? Apple pehle use install karayega, phir Simplicity.';
+  }
+})();
 function toggleQR(btn,id){var d=document.getElementById('qr-'+id);var open=d.classList.toggle('open');btn.classList.toggle('open',open);}
 function openTF(p){document.getElementById('tfTitle').textContent=(p==='mac'?'Install on Mac (Apple Silicon)':'Install on iPhone & iPad');document.getElementById('tf').classList.add('on');}
 function closeTF(){document.getElementById('tf').classList.remove('on');}
