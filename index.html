@@ -69,6 +69,10 @@ h1{font-family:'Sora';text-align:center;font-size:31px;line-height:1.08;font-wei
 .vcap{font-size:11px;color:#8fc7d8;font-weight:600;margin-top:11px;letter-spacing:.2px}
 .vbtn{display:inline-block;margin-top:15px;background:#fff;color:#0b6aa0;font-weight:800;font-size:14px;padding:12px 30px;border-radius:999px;text-decoration:none;box-shadow:0 12px 26px -10px rgba(0,0,0,.45)}
 .foot{text-align:center;font-size:11px;color:#6f7ea7;margin-top:22px;line-height:1.7;font-weight:500}
+.flinks{display:flex;flex-direction:column;gap:9px;margin-top:18px}
+.flinks a{display:flex;align-items:center;justify-content:center;gap:8px;padding:13px 16px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#cdd9ff;font-weight:800;font-size:13px;text-decoration:none;transition:background .15s}
+.flinks a:hover{background:rgba(255,255,255,.09)}
+.flinks a.help{color:#7fe3ff;background:rgba(22,192,232,.1);border-color:rgba(22,192,232,.35)}
 .ov{position:fixed;inset:0;z-index:50;display:none;align-items:center;justify-content:center;padding:22px;background:rgba(3,5,12,.76);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px)}
 .ov.on{display:flex}
 .sheet{position:relative;width:100%;max-width:400px;background:linear-gradient(180deg,#0f1733,#0a0f24);border:1px solid rgba(255,255,255,.15);border-radius:26px;padding:26px 20px 20px;box-shadow:0 40px 90px -20px rgba(0,0,0,.8)}
@@ -86,7 +90,7 @@ h1{font-family:'Sora';text-align:center;font-size:31px;line-height:1.08;font-wei
 <div class="appicon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 16.5L12 7l7 9.5" stroke="#fff" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
 <div class="eyebrow">SIMPLICITY PROJECTS PVT LTD</div>
 <h1>Get the Simplicity app</h1>
-<p class="sub">Attendance, chat, calls, sites &amp; approvals — your whole workday in one app. Pick your device, or scan a code to send it to a phone.</p>
+<p class="sub">Attendance, live map, reports, chat &amp; approvals — your whole workday in one app. Pick your device, or scan a code to send it to a phone.</p>
 <div id="hero" style="display:none;margin:0 0 18px">
   <a id="heroBtn" class="cta" style="display:flex;width:100%;padding:17px 20px;font-size:16.5px;border-radius:18px;gap:10px" href="#">
     <svg style="width:21px;height:21px;flex:0 0 auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 21h16"/></svg>
@@ -148,6 +152,7 @@ h1{font-family:'Sora';text-align:center;font-size:31px;line-height:1.08;font-wei
       <div class="qrcap">Point your phone camera here</div>
     </div></div>
   </div>
+<div class="flinks"><a href="https://devmadan2004-lang.github.io/simplicity/">Features &amp; how-to videos &rarr;</a><a class="help" href="https://devmadan2004-lang.github.io/simplicity/help/">Koi problem? Screenshot bhejo &rarr;</a></div>
 <p class="foot">For the team at Simplicity Projects.<br>Android blocked? Allow &ldquo;install unknown apps&rdquo; for your browser, then tap the file.<br><span style="opacity:.7">Visitors check in at the separate visitor link.</span></p>
 </div>
 <div class="ov" id="tf" onclick="if(event.target===this)closeTF()">
