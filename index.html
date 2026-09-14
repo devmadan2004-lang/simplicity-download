@@ -23,7 +23,7 @@
     }catch(e){fin(APK);}
   };
   if(/[?&]go=1/.test(location.search)){
-    if(window.__isAndroid){location.replace('https://devmadan2004-lang.github.io/simplicity/android/');}
+    if(window.__isAndroid){location.href=APK;}  /* direct APK until Google activates the Play internal-test link */
     else if(window.__isIOS){location.replace(TF);}
   }
 })();
